@@ -1,0 +1,1659 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica de Estética - Beleza e Autoestima</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --rosa-claro: #fce4ec;
+            --rosa: #e91e63;
+            --rosa-escuro: #c2185b;
+            --branco: #ffffff;
+            --cinza-claro: #f5f5f5;
+            --cinza: #666666;
+            --cinza-escuro: #333333;
+            --verde-whatsapp: #25d366;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--cinza-escuro);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 80px 0;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--rosa-escuro);
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: var(--cinza);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .btn-rosa {
+            background: var(--rosa);
+            color: var(--branco);
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-rosa:hover {
+            background: var(--rosa-escuro);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(233,30,99,0.4);
+        }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, var(--rosa-claro) 0%, var(--branco) 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -10%;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(233,30,99,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(233,30,99,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 10s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-30px); }
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            color: var(--rosa-escuro);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-text h1 span {
+            color: var(--rosa);
+            position: relative;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: var(--cinza);
+            margin-bottom: 30px;
+        }
+
+        .hero-image {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-image .img-placeholder {
+            width: 100%;
+            max-width: 450px;
+            height: 500px;
+            background: linear-gradient(135deg, var(--rosa-claro) 0%, var(--rosa) 100%);
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 30px 80px rgba(233,30,99,0.3);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero-image .img-placeholder i {
+            font-size: 8rem;
+            color: var(--branco);
+        }
+
+        /* PROBLEMAS */
+        .problemas {
+            background: var(--branco);
+        }
+
+        .tags-problemas {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .tag {
+            background: var(--rosa-claro);
+            color: var(--rosa-escuro);
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .tag:hover {
+            background: var(--rosa);
+            color: var(--branco);
+            transform: scale(1.05);
+        }
+
+        .problemas-texto {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, var(--cinza-claro) 0%, var(--branco) 100%);
+            border-radius: 15px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .problemas-texto p {
+            font-size: 1.1rem;
+            color: var(--cinza);
+        }
+
+        /* SOLUÇÃO */
+        .solucao {
+            background: linear-gradient(135deg, var(--rosa-claro) 0%, var(--branco) 100%);
+        }
+
+        .solucao-content > p {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-size: 1.1rem;
+            color: var(--cinza);
+            text-align: center;
+        }
+
+        .cards-solucao {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .card-solucao {
+            background: var(--branco);
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+            transition: all 0.4s ease;
+        }
+
+        .card-solucao:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(233,30,99,0.2);
+        }
+
+        .card-solucao i {
+            font-size: 3rem;
+            color: var(--rosa);
+            margin-bottom: 20px;
+        }
+
+        .card-solucao h3 {
+            color: var(--rosa-escuro);
+            margin-bottom: 10px;
+        }
+
+        .card-solucao p {
+            color: var(--cinza);
+            font-size: 0.95rem;
+        }
+
+        /* PROCEDIMENTOS */
+        .procedimentos {
+            background: var(--branco);
+        }
+
+        .grid-procedimentos {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .procedimento-card {
+            background: var(--branco);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+        }
+
+        .procedimento-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.15);
+        }
+
+        .procedimento-img {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(135deg, var(--rosa-claro) 0%, var(--branco) 50%, var(--rosa-claro) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .procedimento-img i {
+            font-size: 3.5rem;
+            color: var(--rosa);
+        }
+
+        .procedimento-info {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .procedimento-info h3 {
+            color: var(--rosa-escuro);
+            margin-bottom: 10px;
+        }
+
+        .procedimento-info p {
+            color: var(--cinza);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .btn-whatsapp {
+            background: var(--verde-whatsapp);
+            color: var(--branco);
+            padding: 12px 25px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-whatsapp:hover {
+            background: #1da851;
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(37,211,102,0.4);
+        }
+
+        /* ANTES E DEPOIS */
+        .antes-depois {
+            background: var(--cinza-claro);
+        }
+
+        .galeria {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .galeria-item {
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, var(--rosa-claro), var(--branco), var(--rosa-claro));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .galeria-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 50px rgba(233,30,99,0.25);
+        }
+
+        .galeria-item i {
+            font-size: 3rem;
+            color: var(--rosa);
+        }
+
+        /* BENEFÍCIOS */
+        .beneficios {
+            background: var(--branco);
+        }
+
+        .beneficios-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .beneficio-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .beneficio-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--rosa-claro);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .beneficio-item:hover .beneficio-icon {
+            background: var(--rosa);
+            transform: scale(1.1);
+        }
+
+        .beneficio-icon i {
+            font-size: 1.5rem;
+            color: var(--rosa);
+            transition: color 0.3s ease;
+        }
+
+        .beneficio-item:hover .beneficio-icon i {
+            color: var(--branco);
+        }
+
+        .beneficio-text h3 {
+            color: var(--rosa-escuro);
+            margin-bottom: 8px;
+        }
+
+        .beneficio-text p {
+            color: var(--cinza);
+        }
+
+        /* PROVA SOCIAL */
+        .prova-social {
+            background: linear-gradient(135deg, var(--rosa) 0%, var(--rosa-escuro) 100%);
+            color: var(--branco);
+            padding: 80px 0;
+        }
+
+        .prova-social .section-title h2 {
+            color: var(--branco);
+        }
+
+        .prova-social .section-title p {
+            color: rgba(255,255,255,0.85);
+        }
+
+        .numeros {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+
+        .numero {
+            padding: 30px;
+        }
+
+        .numero h3 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .numero p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* DEPOIMENTOS */
+        .depoimentos {
+            background: var(--branco);
+        }
+
+        .depoimentos-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .depoimento-card {
+            background: var(--cinza-claro);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+
+        .depoimento-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+        }
+
+        .depoimento-foto {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--rosa-claro), var(--rosa));
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .depoimento-foto i {
+            font-size: 2rem;
+            color: var(--branco);
+        }
+
+        .depoimento-card p {
+            color: var(--cinza);
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .depoimento-card h4 {
+            color: var(--rosa-escuro);
+        }
+
+        /* DIFERENCIAIS */
+        .diferenciais {
+            background: var(--cinza-claro);
+        }
+
+        .diferenciais-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .diferencial-item {
+            text-align: center;
+            padding: 30px;
+            background: var(--branco);
+            border-radius: 20px;
+            transition: all 0.4s ease;
+        }
+
+        .diferencial-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+        }
+
+        .diferencial-item i {
+            font-size: 2.5rem;
+            color: var(--rosa);
+            margin-bottom: 15px;
+        }
+
+        .diferencial-item h3 {
+            color: var(--rosa-escuro);
+            font-size: 1rem;
+        }
+
+        /* CTA FORTE */
+        .cta-forte {
+            background: linear-gradient(135deg, var(--rosa) 0%, var(--rosa-escuro) 100%);
+            text-align: center;
+            color: var(--branco);
+            padding: 80px 0;
+        }
+
+        .cta-forte h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .cta-forte p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .btn-whatsapp-grande {
+            background: var(--verde-whatsapp);
+            color: var(--branco);
+            padding: 20px 50px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-whatsapp-grande:hover {
+            background: #1da851;
+            transform: scale(1.05);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+
+        /* FAQ */
+        .faq {
+            background: var(--branco);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--cinza-claro);
+            border-radius: 15px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: var(--rosa-claro);
+        }
+
+        .faq-question h3 {
+            color: var(--rosa-escuro);
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .faq-question i {
+            color: var(--rosa);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .faq-answer p {
+            padding: 0 25px 20px;
+            color: var(--cinza);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+        }
+
+        /* FORMULÁRIO */
+        .formulario {
+            background: var(--cinza-claro);
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--branco);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--rosa-escuro);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--rosa);
+            box-shadow: 0 0 0 4px rgba(233,30,99,0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-submit {
+            width: 100%;
+            background: var(--rosa);
+            color: var(--branco);
+            padding: 18px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .form-submit:hover {
+            background: var(--rosa-escuro);
+        }
+
+        .form-submit:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .loading i {
+            font-size: 2rem;
+            color: var(--rosa);
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* MODAL */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal {
+            background: var(--branco);
+            padding: 50px;
+            border-radius: 25px;
+            text-align: center;
+            max-width: 420px;
+            animation: modalIn 0.4s ease;
+        }
+
+        @keyframes modalIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8) translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .modal-check {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, #25d366, #1da851);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            animation: checkPulse 2s ease infinite;
+        }
+
+        @keyframes checkPulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37,211,102,0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(37,211,102,0); }
+        }
+
+        .modal-check i {
+            font-size: 2.5rem;
+            color: var(--branco);
+        }
+
+        .modal h2 {
+            color: var(--rosa-escuro);
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+
+        .modal p {
+            color: var(--cinza);
+            margin-bottom: 25px;
+        }
+
+        .modal-close {
+            background: var(--rosa);
+            color: var(--branco);
+            padding: 14px 35px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .modal-close:hover {
+            background: var(--rosa-escuro);
+            transform: scale(1.05);
+        }
+
+        /* WHATSAPP FIXO */
+        .whatsapp-fixo {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 65px;
+            height: 65px;
+            background: var(--verde-whatsapp);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(37,211,102,0.5);
+            z-index: 999;
+            animation: whatsappPulse 2s ease infinite;
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp-fixo:hover {
+            transform: scale(1.15);
+        }
+
+        @keyframes whatsappPulse {
+            0%, 100% { 
+                transform: scale(1);
+                box-shadow: 0 10px 30px rgba(37,211,102,0.5);
+            }
+            50% { 
+                transform: scale(1.1);
+                box-shadow: 0 15px 40px rgba(37,211,102,0.7);
+            }
+        }
+
+        .whatsapp-fixo i {
+            font-size: 2rem;
+            color: var(--branco);
+        }
+
+        /* FOOTER */
+        .footer {
+            background: var(--cinza-escuro);
+            color: var(--branco);
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-item h3 {
+            color: var(--rosa);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-item p,
+        .footer-item a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 12px;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .footer-item a:hover {
+            color: var(--rosa);
+            transform: translateX(5px);
+        }
+
+        .footer-item i {
+            margin-right: 10px;
+            color: var(--rosa);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-bottom p {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.9rem;
+        }
+
+        /* RESPONSIVO */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+            }
+
+            .hero-image {
+                order: -1;
+            }
+
+            .hero-text h1 {
+                font-size: 2.8rem;
+            }
+
+            .cards-solucao,
+            .grid-procedimentos,
+            .depoimentos-grid,
+            .diferenciais-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .numeros {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .galeria {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-image .img-placeholder {
+                height: 350px;
+            }
+
+            .hero-image .img-placeholder i {
+                font-size: 5rem;
+            }
+
+            .cards-solucao,
+            .grid-procedimentos,
+            .depoimentos-grid,
+            .diferenciais-grid,
+            .numeros,
+            .galeria,
+            .beneficios-grid,
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .whatsapp-fixo {
+                bottom: 20px;
+                right: 20px;
+                width: 55px;
+                height: 55px;
+            }
+
+            .whatsapp-fixo i {
+                font-size: 1.6rem;
+            }
+
+            .form-container {
+                padding: 30px 20px;
+            }
+
+            .cta-forte h2 {
+                font-size: 1.8rem;
+            }
+
+            .numeros h3 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Descubra sua <span>beleza natural</span></h1>
+                    <p>Transforme sua aparência e conquiste a confiança que você merece com tratamentos estéticos modernos e seguros.</p>
+                    <a href="#formulario" class="btn-rosa">Agendar minha avaliação</a>
+                </div>
+                <div class="hero-image">
+                    <div class="img-placeholder">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROBLEMAS -->
+    <section class="section problemas">
+        <div class="container">
+            <div class="section-title">
+                <h2>Entendemos suas necessidades</h2>
+                <p>Combinamos tecnologia de ponta com cuidado personalizado para devolver sua autoconfiança</p>
+            </div>
+            <div class="tags-problemas">
+                <span class="tag">Flacidez</span>
+                <span class="tag">Acne</span>
+                <span class="tag">Baixa autoestima</span>
+                <span class="tag">Sinais de envelhecimento</span>
+            </div>
+            <div class="problemas-texto">
+                <p>Nossa clínica oferece soluções modernas para devolver sua confiança.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOLUÇÃO -->
+    <section class="section solucao">
+        <div class="container">
+            <div class="section-title">
+                <h2>Tratamentos estéticos modernos e seguros</h2>
+            </div>
+            <div class="solucao-content">
+                <p>Utilizamos tecnologia de ponta e protocolos personalizados para garantir resultados naturais e duradouros.</p>
+                <div class="cards-solucao">
+                    <div class="card-solucao">
+                        <i class="fas fa-magic"></i>
+                        <h3>Limpeza de pele profunda</h3>
+                        <p>Remoção de impurezas e rejuvenescimento facial</p>
+                    </div>
+                    <div class="card-solucao">
+                        <i class="fas fa-syringe"></i>
+                        <h3>Botox e preenchimento</h3>
+                        <p>Rugas suavizadas e volume facial natural</p>
+                    </div>
+                    <div class="card-solucao">
+                        <i class="fas fa-face-grin-stars"></i>
+                        <h3>Tratamentos faciais e corporais</h3>
+                        <p>Soluções completas para todas as áreas</p>
+                    </div>
+                </div>
+                <a href="#formulario" class="btn-rosa">Quero agendar minha avaliação</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCEDIMENTOS -->
+    <section class="section procedimentos" id="procedimentos">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nossos Procedimentos</h2>
+                <p>Tratamentos especializados para realçar sua beleza</p>
+            </div>
+            <div class="grid-procedimentos">
+                <div class="procedimento-card">
+                    <div class="procedimento-img">
+                        <i class="fas fa-face-grin-beam"></i>
+                    </div>
+                    <div class="procedimento-info">
+                        <h3>Limpeza de pele</h3>
+                        <p>Remove impurezas e deixa sua pele respirar</p>
+                        <a href="https://wa.me/5599999999999?text=Olá! Gostaria de saber mais sobre limpeza de pele" class="btn-whatsapp" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Agendar
+                        </a>
+                    </div>
+                </div>
+                <div class="procedimento-card">
+                    <div class="procedimento-img">
+                        <i class="fas fa-syringe"></i>
+                    </div>
+                    <div class="procedimento-info">
+                        <h3>Botox</h3>
+                        <p>Rugas suavizadas e aspecto rejuvenescido</p>
+                        <a href="https://wa.me/5599999999999?text=Olá! Gostaria de saber mais sobre Botox" class="btn-whatsapp" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Agendar
+                        </a>
+                    </div>
+                </div>
+                <div class="procedimento-card">
+                    <div class="procedimento-img">
+                        <i class="fas fa-lips"></i>
+                    </div>
+                    <div class="procedimento-info">
+                        <h3>Preenchimento labial</h3>
+                        <p>Lábios volumosos e naturais</p>
+                        <a href="https://wa.me/5599999999999?text=Olá! Gostaria de saber mais sobre preenchimento labial" class="btn-whatsapp" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Agendar
+                        </a>
+                    </div>
+                </div>
+                <div class="procedimento-card">
+                    <div class="procedimento-img">
+                        <i class="fas fa-paint-roller"></i>
+                    </div>
+                    <div class="procedimento-info">
+                        <h3>Peeling químico</h3>
+                        <p>Renovação celular e pele mais uniforme</p>
+                        <a href="https://wa.me/5599999999999?text=Olá! Gostaria de saber mais sobre peeling químico" class="btn-whatsapp" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Agendar
+                        </a>
+                    </div>
+                </div>
+                <div class="procedimento-card">
+                    <div class="procedimento-img">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="procedimento-info">
+                        <h3>Harmonização facial</h3>
+                        <p>Proporções equilibradas e rosto harmônico</p>
+                        <a href="https://wa.me/5599999999999?text=Olá! Gostaria de saber mais sobre harmonização facial" class="btn-whatsapp" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Agendar
+                        </a>
+                    </div>
+                </div>
+                <div class="procedimento-card">
+                    <div class="procedimento-img">
+                        <i class="fas fa-face-angry"></i>
+                    </div>
+                    <div class="procedimento-info">
+                        <h3>Tratamento de acne</h3>
+                        <p>Pele limpa e sem manchas</p>
+                        <a href="https://wa.me/5599999999999?text=Olá! Gostaria de saber mais sobre tratamento de acne" class="btn-whatsapp" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Agendar
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ANTES E DEPOIS -->
+    <section class="section antes-depois">
+        <div class="container">
+            <div class="section-title">
+                <h2>Resultados reais de nossas pacientes</h2>
+                <p>Veja a transformação que podemos fazer em você</p>
+            </div>
+            <div class="galeria">
+                <div class="galeria-item">
+                    <i class="fas fa-image"></i>
+                </div>
+                <div class="galeria-item">
+                    <i class="fas fa-image"></i>
+                </div>
+                <div class="galeria-item">
+                    <i class="fas fa-image"></i>
+                </div>
+                <div class="galeria-item">
+                    <i class="fas fa-image"></i>
+                </div>
+            </div>
+            <div style="text-align: center;">
+                <a href="#formulario" class="btn-rosa">Quero ter esses resultados</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- BENEFÍCIOS -->
+    <section class="section beneficios">
+        <div class="container">
+            <div class="section-title">
+                <h2>Por que escolher nossa clínica?</h2>
+            </div>
+            <div class="beneficios-grid">
+                <div class="beneficio-item">
+                    <div class="beneficio-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <div class="beneficio-text">
+                        <h3>Equipamentos modernos</h3>
+                        <p>Tecnologia de última geração para resultados superiores</p>
+                    </div>
+                </div>
+                <div class="beneficio-item">
+                    <div class="beneficio-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div class="beneficio-text">
+                        <h3>Profissionais certificados</h3>
+                        <p>Equipe qualificada com anos de experiência</p>
+                    </div>
+                </div>
+                <div class="beneficio-item">
+                    <div class="beneficio-icon">
+                        <i class="fas fa-couch"></i>
+                    </div>
+                    <div class="beneficio-text">
+                        <h3>Ambiente confortável</h3>
+                        <p>Espaço acolhedor e relaxante para seu tratamento</p>
+                    </div>
+                </div>
+                <div class="beneficio-item">
+                    <div class="beneficio-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <div class="beneficio-text">
+                        <h3>Resultados naturais</h3>
+                        <p>Realce sua beleza sem artificialidade</p>
+                    </div>
+                </div>
+                <div class="beneficio-item">
+                    <div class="beneficio-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="beneficio-text">
+                        <h3>Atendimento personalizado</h3>
+                        <p>Cada paciente é único e merece atenção especial</p>
+                    </div>
+                </div>
+                <div class="beneficio-item">
+                    <div class="beneficio-icon">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
+                    <div class="beneficio-text">
+                        <h3>Avaliação individual</h3>
+                        <p>Planos de tratamento criados especialmente para você</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROVA SOCIAL -->
+    <section class="prova-social">
+        <div class="container">
+            <div class="section-title">
+                <h2>Mais de 500 clientes satisfeitas</h2>
+                <p>Confiança construída através de resultados excepcionais</p>
+            </div>
+            <div class="numeros">
+                <div class="numero">
+                    <h3><span class="counter" data-target="500">0</span>+</h3>
+                    <p>Pacientes atendidos</p>
+                </div>
+                <div class="numero">
+                    <h3><span class="counter" data-target="5">0</span></h3>
+                    <p>Anos de experiência</p>
+                </div>
+                <div class="numero">
+                    <h3><span class="counter" data-target="98">0</span>%</h3>
+                    <p>De satisfação</p>
+                </div>
+                <div class="numero">
+                    <h3><span class="counter" data-target="1000">0</span>+</h3>
+                    <p>Procedimentos realizados</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DEPOIMENTOS -->
+    <section class="section depoimentos">
+        <div class="container">
+            <div class="section-title">
+                <h2>O que nossas clientes dizem</h2>
+            </div>
+            <div class="depoimentos-grid">
+                <div class="depoimento-card">
+                    <div class="depoimento-foto">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <p>"Atendimento maravilhoso, adorei o resultado. Me senti renovada!"</p>
+                    <h4>Maria Silva</h4>
+                </div>
+                <div class="depoimento-card">
+                    <div class="depoimento-foto">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <p>"Profissionais muito atenciosos. Explicaram cada etapa do tratamento."</p>
+                    <h4>Ana Costa</h4>
+                </div>
+                <div class="depoimento-card">
+                    <div class="depoimento-foto">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <p>"Minha autoestima mudou completamente. Recomendo a todas!"</p>
+                    <h4>Julia Santos</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIFERENCIAIS -->
+    <section class="section diferenciais">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nossos Diferenciais</h2>
+            </div>
+            <div class="diferenciais-grid">
+                <div class="diferencial-item">
+                    <i class="fas fa-building"></i>
+                    <h3>Ambiente moderno</h3>
+                </div>
+                <div class="diferencial-item">
+                    <i class="fas fa-microchip"></i>
+                    <h3>Tecnologia avançada</h3>
+                </div>
+                <div class="diferencial-item">
+                    <i class="fas fa-hands-holding-heart"></i>
+                    <h3>Atendimento humanizado</h3>
+                </div>
+                <div class="diferencial-item">
+                    <i class="fas fa-seedling"></i>
+                    <h3>Resultados naturais</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FORTE -->
+    <section class="cta-forte">
+        <div class="container">
+            <h2>Agende sua avaliação estética agora</h2>
+            <p>Vagas limitadas para esta semana. Não perca essa oportunidade!</p>
+            <a href="https://wa.me/5599999999999?text=Olá! Gostaria de agendar minha avaliação" class="btn-whatsapp-grande" target="_blank">
+                <i class="fab fa-whatsapp"></i> Agendar agora
+            </a>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>Perguntas Frequentes</h2>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Os procedimentos são seguros?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sim, todos os procedimentos são realizados por profissionais certificados utilizando produtos e equipamentos aprovados pela ANVISA. Seguimos protocolos rigorosos de segurança e higiene.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Dói?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>A maioria dos procedimentos é indolor ou causa apenas leve desconforto. Utilizamos técnicas de analgesia quando necessário para garantir seu conforto durante todo o tratamento.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Quanto tempo dura o resultado?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>A duração varia conforme o procedimento. Botox geralmente dura de 4 a 6 meses, preenchimentos de 12 a 18 meses, e tratamentos de pele podem ser permanentes com manutenção adequada.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Preciso de avaliação prévia?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sim, a avaliação é essencial para indicarmos o melhor tratamento para seu caso específico. Durante a consulta, analisamos suas necessidades e criamos um plano personalizado.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Como agendar?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Você pode agendar através do WhatsApp, pelo formulário em nosso site ou ligando para nossa clínica. Nossa equipe terá prazer em encontrar o melhor horário para você.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORMULÁRIO -->
+    <section class="section formulario" id="formulario">
+        <div class="container">
+            <div class="section-title">
+                <h2>Agende sua avaliação</h2>
+                <p>Preencha o formulário e retornaremos em breve</p>
+            </div>
+            <div class="form-container">
+                <form id="contatoForm">
+                    <div class="form-group">
+                        <label for="nome">Nome completo</label>
+                        <input type="text" id="nome" name="nome" required placeholder="Seu nome">
+                    </div>
+                    <div class="form-group">
+                        <label for="telefone">Telefone</label>
+                        <input type="tel" id="telefone" name="telefone" required placeholder="(00) 00000-0000">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" required placeholder="seu@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="procedimento">Procedimento de interesse</label>
+                        <select id="procedimento" name="procedimento" required>
+                            <option value="">Selecione...</option>
+                            <option value="limpeza">Limpeza de pele</option>
+                            <option value="botox">Botox</option>
+                            <option value="preenchimento">Preenchimento labial</option>
+                            <option value="peeling">Peeling químico</option>
+                            <option value="harmonizacao">Harmonização facial</option>
+                            <option value="acne">Tratamento de acne</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="mensagem">Mensagem</label>
+                        <textarea id="mensagem" name="mensagem" placeholder="Conte-nos mais sobre suas necessidades..."></textarea>
+                    </div>
+                    <button type="submit" class="form-submit" id="submitBtn">Enviar mensagem</button>
+                </form>
+                <div class="loading" id="loading">
+                    <i class="fas fa-spinner"></i>
+                    <p>Enviando...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL SUCESSO -->
+    <div class="modal-overlay" id="modalSucesso">
+        <div class="modal">
+            <div class="modal-check">
+                <i class="fas fa-check"></i>
+            </div>
+            <h2>Avaliação agendada com sucesso!</h2>
+            <p>Em breve entraremos em contato para confirmar seu horário.</p>
+            <button class="modal-close" onclick="fecharModal()">Fechar</button>
+        </div>
+    </div>
+
+    <!-- WHATSAPP FIXO -->
+    <a href="https://wa.me/5599999999999" class="whatsapp-fixo" target="_blank" title="Fale conosco no WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-item">
+                    <h3>Contato</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Endereço da clínica</p>
+                    <p><i class="fas fa-phone"></i> (99) 99999-9999</p>
+                    <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i> @clinicaestetica</a>
+                </div>
+                <div class="footer-item">
+                    <h3>Horário de funcionamento</h3>
+                    <p>Segunda a sexta: 9h às 19h</p>
+                    <p>Sábado: 9h às 14h</p>
+                    <p>Domingo: Fechado</p>
+                </div>
+                <div class="footer-item">
+                    <h3>Procedimentos</h3>
+                    <p>Limpeza de pele</p>
+                    <p>Botox e preenchimento</p>
+                    <p>Harmonização facial</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Clínica de Estética. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll Animation - Fade In
+        const sections = document.querySelectorAll('.section');
+        
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            sectionObserver.observe(section);
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const isActive = item.classList.contains('active');
+                
+                // Close all other items
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                
+                // Toggle current item
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Animated Numbers
+        function animateNumbers() {
+            const counters = document.querySelectorAll('.counter');
+            const speed = 200;
+
+            counters.forEach(counter => {
+                const updateCount = () => {
+                    const target = +counter.getAttribute('data-target');
+                    const count = +counter.innerText;
+                    const inc = target / speed;
+
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + inc);
+                        setTimeout(updateCount, 20);
+                    }
+                };
+                updateCount();
+            });
+        }
+
+        // Trigger numbers animation when prova-social is visible
+        const provaSocial = document.querySelector('.prova-social');
+        const numbersObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateNumbers();
+                    numbersObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        numbersObserver.observe(provaSocial);
+
+        // Form AJAX Submit
+        document.getElementById('contatoForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const submitBtn = document.getElementById('submitBtn');
+            const loading = document.getElementById('loading');
+            const form = this;
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Enviando...';
+            loading.style.display = 'block';
+
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+
+            try {
+                const response = await fetch('https://formsubmit.co/ajax/seuemail@gmail.com', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                if (response.ok) {
+                    document.getElementById('modalSucesso').classList.add('active');
+                    form.reset();
+                } else {
+                    alert('Erro ao enviar. Tente novamente ou entre em contato pelo WhatsApp.');
+                }
+            } catch (error) {
+                alert('Erro ao enviar. Tente novamente ou entre em contato pelo WhatsApp.');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Enviar mensagem';
+                loading.style.display = 'none';
+            }
+        });
+
+        // Modal Functions
+        function fecharModal() {
+            document.getElementById('modalSucesso').classList.remove('active');
+        }
+
+        document.getElementById('modalSucesso').addEventListener('click', function(e) {
+            if (e.target === this) {
+                fecharModal();
+            }
+        });
+
+        // Phone Mask
+        document.getElementById('telefone').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 10) {
+                value = value.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+            } else if (value.length > 6) {
+                value = value.replace(/(\d{2})(\d{4})/, '($1) $2');
+            } else if (value.length > 2) {
+                value = value.replace(/(\d{2})/, '($1) ');
+            }
+            e.target.value = value;
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
