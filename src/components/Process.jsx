@@ -10,18 +10,18 @@ const Process = () => (
             <div className="process-grid">
                 <div className="process-step">
                     <span className="step-number">01</span>
-                    <h3>Avaliação e Simetria</h3>
+                    <h3>Design e Simetria</h3>
                     <p>Mapeamento facial completo para encontrar as proporções ideais para o seu rosto.</p>
                 </div>
                 <div className="process-step">
                     <span className="step-number">02</span>
-                    <h3>Design Especializado</h3>
-                    <p>Aplicação da nossa técnica exclusiva para remover apenas os fios necessários e realçar o olhar.</p>
+                    <h3>Técnicas Modernas</h3>
+                    <p>Aplicação da técnica mais atualizada e adequada para o formato natural do seu olhar.</p>
                 </div>
                 <div className="process-step">
                     <span className="step-number">03</span>
-                    <h3>Linha de Tratamento</h3>
-                    <p>Uso de produtos com ativos naturais para estimular o crescimento de novos fios e preencher falhas.</p>
+                    <h3>Recuperação e Brilho</h3>
+                    <p>Cuidados e orientações individuais para nutrir, fortalecer e manter seus fios saudáveis.</p>
                 </div>
             </div>
         </div>
