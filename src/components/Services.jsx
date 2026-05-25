@@ -7,7 +7,7 @@ import imgBuco from '../assets/service_buco.jpg';
 import imgBrow from '../assets/service_brow_lamination.jpg';
 import imgMicro from '../assets/service_micropigmentacao.jpg';
 import imgMicroTecnicas from '../assets/service_micropigmentacao_tecnicas.jpg';
-import imgCta from '../assets/services_cta.jpg';
+import imgCta from '../assets/services_cta.png';
 
 const servicesList = [
     {
